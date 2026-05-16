@@ -157,6 +157,9 @@
     }
 
     .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
       height: 72px;
       display: flex;
       align-items: center;
@@ -193,6 +196,14 @@
       width: 8px;
       height: 8px;
       background: var(--color-primary);
+    }
+
+    .top-nav__location {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.29;
+      color: var(--color-ink-muted);
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -540,6 +551,11 @@
         flex-wrap: wrap;
       }
 
+      .top-nav__location {
+        width: 100%;
+        order: 2;
+      }
+
       .nav-actions {
         margin-left: auto;
         width: 100%;
@@ -594,6 +610,7 @@
         <span>Prokuro</span>
         <span class="brand__dot" aria-hidden="true"></span>
       </a>
+      <p class="top-nav__location">AWS Startup Loft, San Francisco</p>
       <nav class="nav-links" aria-label="Primary">
         <a href="#product">Product</a>
         <a href="#how-it-works">How It Works</a>
@@ -611,7 +628,7 @@
     <section class="hero">
       <div class="container hero__grid">
         <div>
-          <p class="eyebrow">Component intelligence for hardware OEMs · San Francisco</p>
+          <p class="eyebrow">Component intelligence for hardware OEMs</p>
           <h1>Never be blindsided by a component shortage, EOL, or tariff change again.</h1>
           <p class="hero__subheadline">
             Prokuro monitors every component in your BOM, flagging EOL risk, tariff exposure, and supplier concentration before they stop your production line.
@@ -794,7 +811,7 @@
           <span class="brand__dot" aria-hidden="true"></span>
         </a>
         <p class="footer__meta">
-          The weather forecast for your supply chain. Built in San Francisco.
+          The weather forecast for your supply chain.
         </p>
       </div>
       <div class="footer-actions">
