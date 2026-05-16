@@ -210,7 +210,7 @@
 
     .hero__grid {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
+      grid-template-columns: 1fr;
       gap: var(--space-xxl);
       align-items: start;
     }
@@ -227,97 +227,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-md);
-    }
-
-    .dashboard {
-      background: #121b2b;
-      border: 1px solid #25354d;
-      color: #d4dded;
-      padding: var(--space-lg);
-      min-height: 380px;
-    }
-
-    .dashboard__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--space-md);
-      font-size: 14px;
-    }
-
-    .dashboard__kpis {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-sm);
-      margin-bottom: var(--space-lg);
-    }
-
-    .kpi {
-      border: 1px solid #2a3d5a;
-      padding: var(--space-sm);
-      background: #17243a;
-    }
-
-    .kpi__label {
-      font-size: 12px;
-      line-height: 1.33;
-      color: #98a7c2;
-    }
-
-    .kpi__value {
-      margin-top: var(--space-xs);
-      font-size: 24px;
-      line-height: 1.33;
-      color: #f5f8ff;
-      letter-spacing: 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      letter-spacing: 0.2px;
-    }
-
-    th,
-    td {
-      text-align: left;
-      padding: 10px var(--space-xs);
-      border-bottom: 1px solid #243650;
-      white-space: nowrap;
-    }
-
-    th {
-      color: #9db0cf;
-      font-weight: 400;
-    }
-
-    .risk {
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 0.16px;
-    }
-
-    .risk--high {
-      color: #ff8e8e;
-    }
-
-    .risk--medium {
-      color: #ffd783;
-    }
-
-    .risk--low {
-      color: #7de5b0;
-    }
-
-    .risk-badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border: 1px solid currentColor;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.16px;
-      line-height: 1.2;
     }
 
     .social-proof {
@@ -402,38 +311,6 @@
       letter-spacing: 0;
       color: var(--color-ink);
       font-weight: 400;
-    }
-
-    .sample-report {
-      background: var(--color-ink);
-      color: #e2ebfb;
-    }
-
-    .sample-report h2,
-    .sample-report h3 {
-      color: #ffffff;
-    }
-
-    .sample-report p {
-      color: #c7d5ef;
-    }
-
-    .report-shell {
-      border: 1px solid #2a3d5a;
-      background: #17243a;
-      padding: var(--space-lg);
-      margin-top: var(--space-xl);
-    }
-
-    .report-summary {
-      margin-bottom: var(--space-md);
-      font-size: 14px;
-      color: #dbe6fa;
-    }
-
-    .report-shell table th,
-    .report-shell table td {
-      border-bottom: 1px solid #2a3d5a;
     }
 
     .section-cta {
@@ -608,71 +485,8 @@
           </p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#waitlist">Join Waitlist</a>
-            <a class="btn btn--ghost" href="#sample-report">See a Sample Report</a>
+            <a class="btn btn--ghost" href="#pricing">See Pricing</a>
           </div>
-        </div>
-
-        <div class="dashboard" aria-label="BOM risk dashboard mockup">
-          <div class="dashboard__header">
-            <span>BOM Risk Monitor</span>
-            <span>Updated 2 min ago</span>
-          </div>
-          <div class="dashboard__kpis">
-            <div class="kpi">
-              <div class="kpi__label">High risk lines</div>
-              <div class="kpi__value">9</div>
-            </div>
-            <div class="kpi">
-              <div class="kpi__label">Tariff impact</div>
-              <div class="kpi__value">$2.4M</div>
-            </div>
-            <div class="kpi">
-              <div class="kpi__label">Single source</div>
-              <div class="kpi__value">41%</div>
-            </div>
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <th>MPN</th>
-                <th>Manufacturer</th>
-                <th>Risk Flag</th>
-                <th>RISK SCORE</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>TPS62130ARGTR</td>
-                <td>Texas Instruments</td>
-                <td>EOL in 14 months</td>
-                <td><span class="risk risk--high risk-badge">HIGH</span></td>
-              </tr>
-              <tr>
-                <td>STM32H743ZIT6</td>
-                <td>STMicroelectronics</td>
-                <td>Single source</td>
-                <td><span class="risk risk--high risk-badge">HIGH</span></td>
-              </tr>
-              <tr>
-                <td>i.MX8M-MINI</td>
-                <td>NXP</td>
-                <td>China tariff exposure</td>
-                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
-              </tr>
-              <tr>
-                <td>XC7A100T-1CSG324</td>
-                <td>AMD Xilinx</td>
-                <td>Lead time 48 weeks</td>
-                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
-              </tr>
-              <tr>
-                <td>LMV358IDR</td>
-                <td>Texas Instruments</td>
-                <td>Stable supply</td>
-                <td><span class="risk risk--low risk-badge">LOW</span></td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
@@ -737,7 +551,7 @@
           <article class="card">
             <div class="step-number">3</div>
             <h3>Get your risk report</h3>
-            <p>A prioritized list of components that need attention, why they&apos;re risky, and what to do about it. Delivered as a PDF or live dashboard.</p>
+            <p>A prioritized list of components that need attention, why they&apos;re risky, and what to do about it. Delivered as a PDF report.</p>
           </article>
         </div>
       </div>
@@ -803,66 +617,6 @@
             We built this system internally at Cisco — tracking component performance across tens of thousands of production units at the world&apos;s largest contract manufacturers.
             Now we&apos;re making it available to every hardware team.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="sample-report" class="section sample-report">
-      <div class="container">
-        <h2>What you get in every report</h2>
-        <div class="report-shell">
-          <p class="report-summary">14 components flagged · 3 HIGH risk · 8 MEDIUM · 3 LOW</p>
-          <table>
-            <thead>
-              <tr>
-                <th>MPN</th>
-                <th>Manufacturer</th>
-                <th>Risk Level</th>
-                <th>Risk Type</th>
-                <th>Recommended Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>TPS62130ARGTR</td>
-                <td>Texas Instruments</td>
-                <td><span class="risk risk--high risk-badge">HIGH</span></td>
-                <td>EOL Q3 2026</td>
-                <td>Start alternate qualification this quarter</td>
-              </tr>
-              <tr>
-                <td>STM32H743ZIT6</td>
-                <td>STMicroelectronics</td>
-                <td><span class="risk risk--high risk-badge">HIGH</span></td>
-                <td>Single source</td>
-                <td>Approve secondary vendor path</td>
-              </tr>
-              <tr>
-                <td>i.MX8M-MINI</td>
-                <td>NXP</td>
-                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
-                <td>China tariff 25%</td>
-                <td>Model COGS impact on next PO cycle</td>
-              </tr>
-              <tr>
-                <td>XC7A100T-1CSG324</td>
-                <td>AMD Xilinx</td>
-                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
-                <td>Lead time 52 weeks</td>
-                <td>Lock long-lead inventory now</td>
-              </tr>
-              <tr>
-                <td>LMV358IDR</td>
-                <td>Texas Instruments</td>
-                <td><span class="risk risk--low risk-badge">LOW</span></td>
-                <td>Stable supply</td>
-                <td>Monitor monthly</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="section-cta">
-          <a class="btn btn--primary" href="#waitlist">Join the waitlist →</a>
         </div>
       </div>
     </section>
