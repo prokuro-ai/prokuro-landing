@@ -1,2 +1,5 @@
 .DS_Store
 /awesome-design-md-main
+node_modules
+.next
+out

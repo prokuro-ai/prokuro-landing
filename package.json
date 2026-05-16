@@ -1,0 +1,27 @@
+{
+  "name": "prokuro",
+  "version": "1.0.0",
+  "description": "Prokuro marketing site",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mounalissa2003-stack/prokuro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mounalissa2003-stack/prokuro/issues"
+  },
+  "homepage": "https://github.com/mounalissa2003-stack/prokuro#readme",
+  "dependencies": {
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  }
+}
