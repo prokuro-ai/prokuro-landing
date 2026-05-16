@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prokuro | AI-Powered Supply Chain Intelligence</title>
+  <meta name="description" content="Prokuro gives hardware OEMs early warning on component risk before disruptions become production-stopping disasters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #0062ff;
+      --color-primary-hover: #0050e6;
+      --color-primary-pressed: #0043ce;
+      --color-on-primary: #ffffff;
+      --color-ink: #0f1b2d;
+      --color-ink-muted: #4f5d73;
+      --color-ink-subtle: #7a8598;
+      --color-canvas: #ffffff;
+      --color-surface-1: #f4f6f9;
+      --color-surface-2: #e2e8f0;
+      --color-hairline: #d6deea;
+      --color-hairline-strong: #0f1b2d;
+      --color-semantic-success: #24a148;
+      --color-semantic-warning: #f1c21b;
+      --color-semantic-error: #da1e28;
+      --space-xxs: 4px;
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-xxl: 48px;
+      --space-section: 96px;
+      --radius-none: 0;
+      --container-width: 1280px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--color-canvas);
+      color: var(--color-ink);
+      font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.16px;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 64px, var(--container-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: var(--space-section) 0;
+      border-top: 1px solid var(--color-hairline);
+    }
+
+    .section--surface {
+      background: var(--color-surface-1);
+    }
+
+    .eyebrow {
+      font-size: 14px;
+      line-height: 1.29;
+      letter-spacing: 0.16px;
+      color: var(--color-ink-muted);
+      margin: 0 0 var(--space-md);
+    }
+
+    h1 {
+      margin: 0 0 var(--space-lg);
+      font-size: clamp(42px, 6vw, 60px);
+      font-weight: 300;
+      line-height: 1.17;
+      letter-spacing: -0.4px;
+      max-width: 12.5ch;
+    }
+
+    h2 {
+      margin: 0 0 var(--space-xl);
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 var(--space-sm);
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.33;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--color-ink-muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 48px;
+      padding: 12px 16px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-none);
+      font-size: 14px;
+      line-height: 1.29;
+      letter-spacing: 0.16px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn--primary {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+
+    .btn--primary:hover {
+      background: var(--color-primary-hover);
+    }
+
+    .btn--primary:active {
+      background: var(--color-primary-pressed);
+    }
+
+    .btn--ghost {
+      background: var(--color-canvas);
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .btn--ghost:hover {
+      background: #eef4ff;
+    }
+
+    .top-nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--color-hairline);
+      background: var(--color-canvas);
+    }
+
+    .top-nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+
+    .nav-actions,
+    .footer-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-ink);
+      letter-spacing: 0;
+    }
+
+    .brand__dot {
+      width: 8px;
+      height: 8px;
+      background: var(--color-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-xl);
+      font-size: 14px;
+      line-height: 1.29;
+      color: var(--color-ink-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-ink);
+    }
+
+    .hero {
+      padding: var(--space-section) 0;
+      border-bottom: 1px solid var(--color-hairline);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-xxl);
+      align-items: start;
+    }
+
+    .hero__subheadline {
+      max-width: 58ch;
+      font-size: 18px;
+      line-height: 1.5;
+      letter-spacing: 0;
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .dashboard {
+      background: #121b2b;
+      border: 1px solid #25354d;
+      color: #d4dded;
+      padding: var(--space-lg);
+      min-height: 380px;
+    }
+
+    .dashboard__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-md);
+      font-size: 14px;
+    }
+
+    .dashboard__kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .kpi {
+      border: 1px solid #2a3d5a;
+      padding: var(--space-sm);
+      background: #17243a;
+    }
+
+    .kpi__label {
+      font-size: 12px;
+      line-height: 1.33;
+      color: #98a7c2;
+    }
+
+    .kpi__value {
+      margin-top: var(--space-xs);
+      font-size: 24px;
+      line-height: 1.33;
+      color: #f5f8ff;
+      letter-spacing: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 10px var(--space-xs);
+      border-bottom: 1px solid #243650;
+      white-space: nowrap;
+    }
+
+    th {
+      color: #9db0cf;
+      font-weight: 400;
+    }
+
+    .risk {
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.16px;
+    }
+
+    .risk--high {
+      color: #ff8e8e;
+    }
+
+    .risk--medium {
+      color: #ffd783;
+    }
+
+    .risk--low {
+      color: #7de5b0;
+    }
+
+    .social-proof {
+      padding: var(--space-xl) 0;
+      border-bottom: 1px solid var(--color-hairline);
+    }
+
+    .social-proof__inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-xxl);
+      align-items: center;
+    }
+
+    .logo-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .logo-slot {
+      min-height: 64px;
+      border: 1px solid var(--color-hairline);
+      background: var(--color-canvas);
+    }
+
+    .three-col,
+    .steps,
+    .feature-grid {
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      border: 1px solid var(--color-hairline);
+      background: var(--color-canvas);
+      padding: var(--space-lg);
+    }
+
+    .icon {
+      width: 32px;
+      height: 32px;
+      margin-bottom: var(--space-md);
+      border: 1px solid var(--color-hairline-strong);
+      position: relative;
+    }
+
+    .icon::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--color-primary);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      margin-bottom: var(--space-md);
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      font-size: 14px;
+      line-height: 1.29;
+      letter-spacing: 0.16px;
+    }
+
+    .footer {
+      background: var(--color-ink);
+      color: #c9d6eb;
+      padding: 64px 0;
+      border-top: 1px solid #22314a;
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+    }
+
+    .footer__brand {
+      max-width: 56ch;
+    }
+
+    .footer__brand .brand {
+      color: #ffffff;
+      margin-bottom: var(--space-md);
+    }
+
+    .footer__meta {
+      font-size: 14px;
+      line-height: 1.29;
+      color: #b4c1d8;
+    }
+
+    @media (max-width: 1056px) {
+      .hero__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-proof__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .three-col,
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 672px) {
+      .container {
+        width: min(100% - 32px, var(--container-width));
+      }
+
+      .top-nav {
+        height: auto;
+        padding: var(--space-md) 0;
+      }
+
+      .top-nav__inner {
+        flex-wrap: wrap;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+      }
+
+      .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .three-col,
+      .steps,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <div class="container top-nav__inner">
+      <a class="brand" href="#">
+        <span>Prokuro</span>
+        <span class="brand__dot" aria-hidden="true"></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#product">Product</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#company">Company</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn--ghost" href="#demo">Request a Demo</a>
+        <a class="btn btn--primary" href="#early-access">Request Early Access</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <p class="eyebrow">AI-Powered Supply Chain Intelligence · San Francisco</p>
+          <h1>Know what&apos;s going to break your supply chain — before it does.</h1>
+          <p class="hero__subheadline">
+            Prokuro gives hardware teams early warning on component EOL, supplier risk, and tariff exposure.
+            Upload your BOM. Get your risk report in 60 seconds.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#analysis">Get Your Free BOM Analysis</a>
+            <a class="btn btn--ghost" href="#demo">Request a Demo</a>
+            <a class="btn btn--ghost" href="#how-it-works">See How It Works</a>
+          </div>
+        </div>
+
+        <div class="dashboard" aria-label="BOM risk dashboard mockup">
+          <div class="dashboard__header">
+            <span>Live BOM Risk Overview</span>
+            <span>Updated 2 min ago</span>
+          </div>
+          <div class="dashboard__kpis">
+            <div class="kpi">
+              <div class="kpi__label">High risk lines</div>
+              <div class="kpi__value">12</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi__label">Tariff impact</div>
+              <div class="kpi__value">$1.8M</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi__label">Single source</div>
+              <div class="kpi__value">37%</div>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Part Number</th>
+                <th>Category</th>
+                <th>Supplier</th>
+                <th>Risk Score</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>STM32H743ZI</td>
+                <td>MCU</td>
+                <td>STMicro</td>
+                <td>87</td>
+                <td class="risk risk--high">High</td>
+              </tr>
+              <tr>
+                <td>TPS62130RGTR</td>
+                <td>Power IC</td>
+                <td>TI</td>
+                <td>58</td>
+                <td class="risk risk--medium">Medium</td>
+              </tr>
+              <tr>
+                <td>XC7A100T-1CSG324</td>
+                <td>FPGA</td>
+                <td>AMD</td>
+                <td>91</td>
+                <td class="risk risk--high">High</td>
+              </tr>
+              <tr>
+                <td>LMV358IDR</td>
+                <td>Amplifier</td>
+                <td>TI</td>
+                <td>27</td>
+                <td class="risk risk--low">Low</td>
+              </tr>
+              <tr>
+                <td>R5F572NNDDFC</td>
+                <td>MCU</td>
+                <td>Renesas</td>
+                <td>46</td>
+                <td class="risk risk--medium">Medium</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-proof">
+      <div class="container social-proof__inner">
+        <p>
+          Trusted by hardware teams at companies building the next generation of networking, IoT, and industrial devices.
+        </p>
+        <div class="logo-row" aria-label="Customer logos">
+          <div class="logo-slot"></div>
+          <div class="logo-slot"></div>
+          <div class="logo-slot"></div>
+          <div class="logo-slot"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="product" class="section">
+      <div class="container">
+        <h2>The signals you can&apos;t afford to miss</h2>
+        <div class="three-col">
+          <article class="card">
+            <div class="icon" aria-hidden="true"></div>
+            <h3>Your BOM is a ticking clock</h3>
+            <p>
+              Lifecycle windows can close before your team sees the notice. Prokuro surfaces EOL signals early so you can qualify alternates before redesign pressure begins.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true"></div>
+            <h3>Tariffs change overnight</h3>
+            <p>
+              New trade rules can erase margin on critical SKUs in one policy update. Prokuro maps each component to live tariff exposure as regulations shift.
+            </p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true"></div>
+            <h3>Shortages don&apos;t announce themselves</h3>
+            <p>
+              Allocation risk usually appears after lead times have already moved. Prokuro flags fragile sourcing patterns before availability turns into a line-down event.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section section--surface">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="steps">
+          <article class="card">
+            <div class="step-number">1</div>
+            <h3>Upload your BOM</h3>
+            <p>Drop in CSV or Excel and get started in under 60 seconds with no systems integration required.</p>
+          </article>
+          <article class="card">
+            <div class="step-number">2</div>
+            <h3>Prokuro enriches each line</h3>
+            <p>Every component is cross-referenced against distributor data, sanctions entities, tariff schedules, and EOL signals.</p>
+          </article>
+          <article class="card">
+            <div class="step-number">3</div>
+            <h3>Act from a living risk dashboard</h3>
+            <p>Prioritized alerts and line-item intelligence let procurement and engineering teams intervene before disruption spreads.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2>Key features</h2>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>EOL Early Warning</h3>
+            <p>Know 12–18 months before a component goes end-of-life. Enough time to qualify an alternate.</p>
+          </article>
+          <article class="card">
+            <h3>Tariff &amp; Trade Exposure</h3>
+            <p>See exactly which components are hit by new tariffs and by how much, the day rules change.</p>
+          </article>
+          <article class="card">
+            <h3>Supplier Risk Scoring</h3>
+            <p>Single-source flags, geopolitical exposure, and supplier concentration are scored at the line-item level.</p>
+          </article>
+          <article class="card">
+            <h3>Alternate Part Intelligence</h3>
+            <p>Get compatible alternate recommendations and impact tradeoffs so teams can move from alert to mitigation fast.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="company" class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="brand" href="#">
+          <span>Prokuro</span>
+          <span class="brand__dot" aria-hidden="true"></span>
+        </a>
+        <p class="footer__meta">
+          The weather forecast for your supply chain. Built in San Francisco for procurement and supply chain leaders at hardware OEMs.
+        </p>
+      </div>
+      <div class="footer-actions">
+        <a id="demo" class="btn btn--ghost" href="#analysis">Request a Demo</a>
+        <a id="early-access" class="btn btn--primary" href="#analysis">Request Early Access</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
