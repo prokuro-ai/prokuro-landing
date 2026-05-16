@@ -309,6 +309,16 @@
       color: #7de5b0;
     }
 
+    .risk-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid currentColor;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16px;
+      line-height: 1.2;
+    }
+
     .social-proof {
       padding: var(--space-xl) 0;
       border-bottom: 1px solid var(--color-hairline);
@@ -356,6 +366,98 @@
       border: 1px solid var(--color-hairline);
       background: var(--color-canvas);
       padding: var(--space-lg);
+    }
+
+    .card p + p {
+      margin-top: var(--space-sm);
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--color-ink-muted);
+    }
+
+    .list li + li {
+      margin-top: var(--space-sm);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .quote-card {
+      border: 1px solid var(--color-hairline);
+      background: var(--color-surface-1);
+      padding: var(--space-xxl);
+    }
+
+    .quote {
+      margin: 0 0 var(--space-lg);
+      font-size: 32px;
+      line-height: 1.25;
+      letter-spacing: 0;
+      color: var(--color-ink);
+      font-weight: 400;
+    }
+
+    .sample-report {
+      background: var(--color-ink);
+      color: #e2ebfb;
+    }
+
+    .sample-report h2,
+    .sample-report h3 {
+      color: #ffffff;
+    }
+
+    .sample-report p {
+      color: #c7d5ef;
+    }
+
+    .report-shell {
+      border: 1px solid #2a3d5a;
+      background: #17243a;
+      padding: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .report-summary {
+      margin-bottom: var(--space-md);
+      font-size: 14px;
+      color: #dbe6fa;
+    }
+
+    .report-shell table th,
+    .report-shell table td {
+      border-bottom: 1px solid #2a3d5a;
+    }
+
+    .section-cta {
+      margin-top: var(--space-lg);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .card--highlight {
+      border-color: var(--color-primary);
+    }
+
+    .card-badge {
+      display: inline-block;
+      margin-bottom: var(--space-md);
+      padding: 2px 8px;
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      font-size: 12px;
+      line-height: 1.33;
+      letter-spacing: 0.16px;
     }
 
     .icon {
@@ -429,7 +531,8 @@
       }
 
       .three-col,
-      .steps {
+      .steps,
+      .pricing-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -460,7 +563,9 @@
 
       .three-col,
       .steps,
-      .feature-grid {
+      .feature-grid,
+      .two-col,
+      .pricing-grid {
         grid-template-columns: 1fr;
       }
 
@@ -484,8 +589,8 @@
         <a href="#company">Company</a>
       </nav>
       <div class="nav-actions">
-        <a class="btn btn--ghost" href="#demo">Request a Demo</a>
-        <a class="btn btn--primary" href="#early-access">Request Early Access</a>
+        <a class="btn btn--ghost" href="#sample-report">See a Sample Report</a>
+        <a class="btn btn--primary" href="#pricing">Request a Report</a>
       </div>
     </div>
   </header>
@@ -494,83 +599,76 @@
     <section class="hero">
       <div class="container hero__grid">
         <div>
-          <p class="eyebrow">AI-Powered Supply Chain Intelligence · San Francisco</p>
-          <h1>Know what&apos;s going to break your supply chain — before it does.</h1>
+          <p class="eyebrow">Component intelligence for hardware OEMs · San Francisco</p>
+          <h1>Never be blindsided by a component shortage, EOL, or tariff change again.</h1>
           <p class="hero__subheadline">
-            Prokuro gives hardware teams early warning on component EOL, supplier risk, and tariff exposure.
-            Upload your BOM. Get your risk report in 60 seconds.
+            Prokuro monitors every component in your BOM — flagging EOL risk, tariff exposure, and supplier concentration before they stop your production line.
+            Built by engineers who did this at Cisco.
           </p>
           <div class="hero__cta">
-            <a class="btn btn--primary" href="#analysis">Get Your Free BOM Analysis</a>
-            <a class="btn btn--ghost" href="#demo">Request a Demo</a>
-            <a class="btn btn--ghost" href="#how-it-works">See How It Works</a>
+            <a class="btn btn--primary" href="#analysis">Request Your Free BOM Analysis</a>
+            <a class="btn btn--ghost" href="#sample-report">See a Sample Report</a>
           </div>
         </div>
 
         <div class="dashboard" aria-label="BOM risk dashboard mockup">
           <div class="dashboard__header">
-            <span>Live BOM Risk Overview</span>
+            <span>BOM Risk Monitor</span>
             <span>Updated 2 min ago</span>
           </div>
           <div class="dashboard__kpis">
             <div class="kpi">
               <div class="kpi__label">High risk lines</div>
-              <div class="kpi__value">12</div>
+              <div class="kpi__value">9</div>
             </div>
             <div class="kpi">
               <div class="kpi__label">Tariff impact</div>
-              <div class="kpi__value">$1.8M</div>
+              <div class="kpi__value">$2.4M</div>
             </div>
             <div class="kpi">
               <div class="kpi__label">Single source</div>
-              <div class="kpi__value">37%</div>
+              <div class="kpi__value">41%</div>
             </div>
           </div>
           <table>
             <thead>
               <tr>
-                <th>Part Number</th>
-                <th>Category</th>
-                <th>Supplier</th>
-                <th>Risk Score</th>
-                <th>Status</th>
+                <th>MPN</th>
+                <th>Manufacturer</th>
+                <th>Risk Flag</th>
+                <th>RISK SCORE</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>STM32H743ZI</td>
-                <td>MCU</td>
-                <td>STMicro</td>
-                <td>87</td>
-                <td class="risk risk--high">High</td>
+                <td>TPS62130ARGTR</td>
+                <td>Texas Instruments</td>
+                <td>EOL in 14 months</td>
+                <td><span class="risk risk--high risk-badge">HIGH</span></td>
               </tr>
               <tr>
-                <td>TPS62130RGTR</td>
-                <td>Power IC</td>
-                <td>TI</td>
-                <td>58</td>
-                <td class="risk risk--medium">Medium</td>
+                <td>STM32H743ZIT6</td>
+                <td>STMicroelectronics</td>
+                <td>Single source</td>
+                <td><span class="risk risk--high risk-badge">HIGH</span></td>
+              </tr>
+              <tr>
+                <td>i.MX8M-MINI</td>
+                <td>NXP</td>
+                <td>China tariff exposure</td>
+                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
               </tr>
               <tr>
                 <td>XC7A100T-1CSG324</td>
-                <td>FPGA</td>
-                <td>AMD</td>
-                <td>91</td>
-                <td class="risk risk--high">High</td>
+                <td>AMD Xilinx</td>
+                <td>Lead time 48 weeks</td>
+                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
               </tr>
               <tr>
                 <td>LMV358IDR</td>
-                <td>Amplifier</td>
-                <td>TI</td>
-                <td>27</td>
-                <td class="risk risk--low">Low</td>
-              </tr>
-              <tr>
-                <td>R5F572NNDDFC</td>
-                <td>MCU</td>
-                <td>Renesas</td>
-                <td>46</td>
-                <td class="risk risk--medium">Medium</td>
+                <td>Texas Instruments</td>
+                <td>Stable supply</td>
+                <td><span class="risk risk--low risk-badge">LOW</span></td>
               </tr>
             </tbody>
           </table>
@@ -581,7 +679,7 @@
     <section class="social-proof">
       <div class="container social-proof__inner">
         <p>
-          Trusted by hardware teams at companies building the next generation of networking, IoT, and industrial devices.
+          Built by engineers who tracked AI repair accuracy across tens of thousands of units at Flex, Foxconn, and Fabrinet. Now available to every hardware team.
         </p>
         <div class="logo-row" aria-label="Customer logos">
           <div class="logo-slot"></div>
@@ -594,27 +692,27 @@
 
     <section id="product" class="section">
       <div class="container">
-        <h2>The signals you can&apos;t afford to miss</h2>
+        <h2>The problems that shut lines down</h2>
         <div class="three-col">
           <article class="card">
             <div class="icon" aria-hidden="true"></div>
-            <h3>Your BOM is a ticking clock</h3>
+            <h3>You found out too late</h3>
             <p>
-              Lifecycle windows can close before your team sees the notice. Prokuro surfaces EOL signals early so you can qualify alternates before redesign pressure begins.
+              The average OEM learns about a component EOL 6 months before it hits. Qualifying an alternate takes 12–18 months. That gap costs millions.
             </p>
           </article>
           <article class="card">
             <div class="icon" aria-hidden="true"></div>
-            <h3>Tariffs change overnight</h3>
+            <h3>Your BOM is a geopolitical risk map</h3>
             <p>
-              New trade rules can erase margin on critical SKUs in one policy update. Prokuro maps each component to live tariff exposure as regulations shift.
+              35–60% of hardware BOMs have components sourced from regions with active tariff or export control exposure. Most teams don&apos;t know which ones.
             </p>
           </article>
           <article class="card">
             <div class="icon" aria-hidden="true"></div>
-            <h3>Shortages don&apos;t announce themselves</h3>
+            <h3>Your CM won&apos;t tell you until it&apos;s too late</h3>
             <p>
-              Allocation risk usually appears after lead times have already moved. Prokuro flags fragile sourcing patterns before availability turns into a line-down event.
+              Contract manufacturers manage hundreds of clients. Allocation issues, lead time blowouts, and quality escapes reach you last. Prokuro puts you first.
             </p>
           </article>
         </div>
@@ -628,41 +726,171 @@
           <article class="card">
             <div class="step-number">1</div>
             <h3>Upload your BOM</h3>
-            <p>Drop in CSV or Excel and get started in under 60 seconds with no systems integration required.</p>
+            <p>CSV or Excel. We extract every MPN, manufacturer, and quantity. Takes 60 seconds.</p>
           </article>
           <article class="card">
             <div class="step-number">2</div>
-            <h3>Prokuro enriches each line</h3>
-            <p>Every component is cross-referenced against distributor data, sanctions entities, tariff schedules, and EOL signals.</p>
+            <h3>We enrich every line item</h3>
+            <p>Octopart live data, HTS tariff codes, US Entity List, EOL databases, and LLM-powered geopolitical risk analysis. Run automatically across every component.</p>
           </article>
           <article class="card">
             <div class="step-number">3</div>
-            <h3>Act from a living risk dashboard</h3>
-            <p>Prioritized alerts and line-item intelligence let procurement and engineering teams intervene before disruption spreads.</p>
+            <h3>Get your risk report</h3>
+            <p>A prioritized list of components that need attention, why they&apos;re risky, and what to do about it. Delivered as a PDF or live dashboard.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Key features</h2>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>EOL Early Warning</h3>
+            <p>We flag components approaching end-of-life 12–18 months out — enough runway to qualify an alternate before your redesign becomes an emergency.</p>
+          </article>
+          <article class="card">
+            <h3>Tariff &amp; Trade Exposure</h3>
+            <p>We map every component to its HTS code and flag tariff rate changes, Section 301 exposure, and Entity List restrictions the day they change.</p>
+          </article>
+          <article class="card">
+            <h3>Supplier Concentration Risk</h3>
+            <p>Single-source dependencies, China concentration, and TSMC-dependent components scored and flagged before they become leverage someone else holds over you.</p>
+          </article>
+          <article class="card">
+            <h3>Alternate Component Engine</h3>
+            <p>When we flag a risk, we suggest pin-compatible alternates with live Octopart availability data. Not just a warning — a path forward.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface">
+      <div class="container">
+        <h2>Who it&apos;s for</h2>
+        <div class="two-col">
+          <article class="card">
+            <h3>Best fit</h3>
+            <ul class="list">
+              <li>Hardware OEMs with $50M–$500M in revenue</li>
+              <li>Products with 3–10 year lifespans (networking, industrial, medical-adjacent)</li>
+              <li>Teams outsourcing manufacturing to contract manufacturers</li>
+              <li>Companies that got caught in the 2021–2022 chip shortage</li>
+              <li>Procurement teams still running BOM risk on spreadsheets and gut instinct</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Not a fit if...</h3>
+            <ul class="list">
+              <li>You&apos;re building consumer hardware with 1-year product cycles</li>
+              <li>You have a 20-person supply chain team and internal ML capabilities</li>
+              <li>You&apos;re pre-product and don&apos;t have a real BOM yet</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="quote-card">
+          <p class="quote">
+            &quot;One missed EOL on a 7-year product means 18 months of emergency redesign. One tariff change can blow up your COGS by 8–15%. Prokuro costs less than either mistake.&quot;
+          </p>
+          <p>
+            We built this system internally at Cisco — tracking component performance across tens of thousands of production units at the world&apos;s largest contract manufacturers.
+            Now we&apos;re making it available to every hardware team.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sample-report" class="section sample-report">
+      <div class="container">
+        <h2>What you get in every report</h2>
+        <div class="report-shell">
+          <p class="report-summary">14 components flagged · 3 HIGH risk · 8 MEDIUM · 3 LOW</p>
+          <table>
+            <thead>
+              <tr>
+                <th>MPN</th>
+                <th>Manufacturer</th>
+                <th>Risk Level</th>
+                <th>Risk Type</th>
+                <th>Recommended Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TPS62130ARGTR</td>
+                <td>Texas Instruments</td>
+                <td><span class="risk risk--high risk-badge">HIGH</span></td>
+                <td>EOL Q3 2026</td>
+                <td>Start alternate qualification this quarter</td>
+              </tr>
+              <tr>
+                <td>STM32H743ZIT6</td>
+                <td>STMicroelectronics</td>
+                <td><span class="risk risk--high risk-badge">HIGH</span></td>
+                <td>Single source</td>
+                <td>Approve secondary vendor path</td>
+              </tr>
+              <tr>
+                <td>i.MX8M-MINI</td>
+                <td>NXP</td>
+                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
+                <td>China tariff 25%</td>
+                <td>Model COGS impact on next PO cycle</td>
+              </tr>
+              <tr>
+                <td>XC7A100T-1CSG324</td>
+                <td>AMD Xilinx</td>
+                <td><span class="risk risk--medium risk-badge">MEDIUM</span></td>
+                <td>Lead time 52 weeks</td>
+                <td>Lock long-lead inventory now</td>
+              </tr>
+              <tr>
+                <td>LMV358IDR</td>
+                <td>Texas Instruments</td>
+                <td><span class="risk risk--low risk-badge">LOW</span></td>
+                <td>Stable supply</td>
+                <td>Monitor monthly</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="section-cta">
+          <a class="btn btn--primary" href="#analysis">Request your analysis →</a>
         </div>
       </div>
     </section>
 
     <section id="pricing" class="section">
       <div class="container">
-        <h2>Key features</h2>
-        <div class="feature-grid">
+        <h2>Pricing</h2>
+        <div class="pricing-grid">
           <article class="card">
-            <h3>EOL Early Warning</h3>
-            <p>Know 12–18 months before a component goes end-of-life. Enough time to qualify an alternate.</p>
+            <h3>BOM Report</h3>
+            <p><strong>$3,000–$8,000 per engagement.</strong></p>
+            <p>Manual concierge analysis. Full risk report delivered as PDF within 48 hours.</p>
+            <p>Ideal for: NPI risk review, M&amp;A due diligence, annual supply chain audit.</p>
+            <p class="section-cta"><a class="btn btn--ghost" href="#analysis">Request a Report</a></p>
+          </article>
+          <article class="card card--highlight">
+            <span class="card-badge">Most Popular</span>
+            <h3>Continuous Monitoring</h3>
+            <p><strong>$3,000–$8,000/month.</strong></p>
+            <p>Your BOM monitored weekly. Instant alerts on EOL notices, tariff changes, lead time spikes, entity list additions.</p>
+            <p>Alternate component suggestions included.</p>
+            <p class="section-cta"><a class="btn btn--primary" href="#analysis">Start Monitoring</a></p>
           </article>
           <article class="card">
-            <h3>Tariff &amp; Trade Exposure</h3>
-            <p>See exactly which components are hit by new tariffs and by how much, the day rules change.</p>
-          </article>
-          <article class="card">
-            <h3>Supplier Risk Scoring</h3>
-            <p>Single-source flags, geopolitical exposure, and supplier concentration are scored at the line-item level.</p>
-          </article>
-          <article class="card">
-            <h3>Alternate Part Intelligence</h3>
-            <p>Get compatible alternate recommendations and impact tradeoffs so teams can move from alert to mitigation fast.</p>
+            <h3>Enterprise</h3>
+            <p><strong>Custom pricing.</strong></p>
+            <p>Unlimited BOMs. Arena PLM + NetSuite integration. API access.</p>
+            <p>Dedicated supply chain analyst. SLA-backed alerts.</p>
+            <p class="section-cta"><a class="btn btn--ghost" href="#analysis">Talk to Us</a></p>
           </article>
         </div>
       </div>
@@ -677,12 +905,12 @@
           <span class="brand__dot" aria-hidden="true"></span>
         </a>
         <p class="footer__meta">
-          The weather forecast for your supply chain. Built in San Francisco for procurement and supply chain leaders at hardware OEMs.
+          The weather forecast for your supply chain. Built in San Francisco.
         </p>
       </div>
       <div class="footer-actions">
-        <a id="demo" class="btn btn--ghost" href="#analysis">Request a Demo</a>
-        <a id="early-access" class="btn btn--primary" href="#analysis">Request Early Access</a>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/company/prokuro/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a id="analysis" class="btn btn--primary" href="#pricing">Request a Report</a>
       </div>
     </div>
   </footer>
