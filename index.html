@@ -241,16 +241,19 @@
       align-items: center;
     }
 
-    .logo-row {
+    .proof-points {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: var(--space-sm);
     }
 
-    .logo-slot {
-      min-height: 64px;
+    .proof-point {
       border: 1px solid var(--color-hairline);
       background: var(--color-canvas);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 14px;
+      line-height: 1.29;
+      color: var(--color-ink);
     }
 
     .three-col,
@@ -539,8 +542,8 @@
         flex: 1 1 auto;
       }
 
-      .logo-row {
-        grid-template-columns: 1fr 1fr;
+      .proof-points {
+        grid-template-columns: 1fr;
       }
 
       .modal {
@@ -605,11 +608,11 @@
         <p>
           Built by engineers who tracked AI repair accuracy across tens of thousands of units at Flex, Foxconn, and Fabrinet. Now available to every hardware team.
         </p>
-        <div class="logo-row" aria-label="Customer logos">
-          <div class="logo-slot"></div>
-          <div class="logo-slot"></div>
-          <div class="logo-slot"></div>
-          <div class="logo-slot"></div>
+        <div class="proof-points" aria-label="Operational credibility">
+          <div class="proof-point">Tens of thousands of production units analyzed</div>
+          <div class="proof-point">Experience across Flex, Foxconn, and Fabrinet operations</div>
+          <div class="proof-point">Built for hardware OEM procurement and engineering teams</div>
+          <div class="proof-point">Focused on EOL, tariff, and supplier concentration risk</div>
         </div>
       </div>
     </section>
